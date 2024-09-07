@@ -1,0 +1,49 @@
+.wrapper {
+    max-width: 736px;
+    margin: -1.6875rem auto 0 auto;
+}
+
+.newTaskForm {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.newTaskForm input {
+    flex: 1;
+    background-color: var(--gray-500);
+    border: 1px solid var(--gray-700);
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--gray-100);
+}
+
+.newTaskForm button {
+    background-color: var(--blue-800);
+    border: 0;
+    border-radius: 8px;
+    padding: 1rem;
+    color: var(--gray-100);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    transition: background 0.2s;
+    cursor: pointer;
+}
+
+.newTaskForm button:hover {
+    background-color: var(--blue-500);
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 87.5%;
+    }
+
+    .wrapper {
+        padding: 0 1rem;
+    }
+}
