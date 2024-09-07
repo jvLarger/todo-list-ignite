@@ -10,8 +10,10 @@ import {
     useEffect,
     useState,
 } from 'react';
+import { TaskCounter } from './components/TaskCounter';
+import { EmptyTaskList } from './components/EmptyTaskList';
 
-interface Task {
+export interface Task {
     id: string;
     content: string;
     completed: boolean;
@@ -78,9 +80,15 @@ function App() {
                         <PlusCircle size={20} />
                     </button>
                 </form>
-                {tasks.map((task) => {
-                    return <p key={task.id}>{task.content}</p>;
-                })}
+                <TaskCounter tasks={tasks} />
+
+                {tasks.length > 0 ? (
+                    tasks.map((task) => {
+                        return <p key={task.id}>{task.content}</p>;
+                    })
+                ) : (
+                    <EmptyTaskList />
+                )}
             </div>
         </>
     );

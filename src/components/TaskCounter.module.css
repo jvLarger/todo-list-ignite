@@ -1,0 +1,35 @@
+.container {
+    margin-top: 4rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--gray-400);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container > div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.createdTask {
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: var(--blue-500);
+}
+
+.completedTask {
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: var(--purple-500);
+}
+
+.badge {
+    background-color: var(--gray-400);
+    color: var(--gray-200);
+    font-weight: bold;
+    font-size: 0.75rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 8px;
+}
