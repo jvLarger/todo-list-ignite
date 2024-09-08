@@ -12,12 +12,7 @@ import {
 } from 'react';
 import { TaskCounter } from './components/TaskCounter';
 import { EmptyTaskList } from './components/EmptyTaskList';
-
-export interface Task {
-    id: string;
-    content: string;
-    completed: boolean;
-}
+import { Task, TaskItem } from './components/TaskItem';
 
 function App() {
     const [newTaskText, setNewTaskText] = useState('');
@@ -32,7 +27,7 @@ function App() {
         const newTaskList = [
             ...tasks,
             {
-                id: new Date().getTime().toString(),
+                id: '_' + new Date().getTime().toString(),
                 content: newTaskText,
                 completed: false,
             },
@@ -59,6 +54,25 @@ function App() {
         localStorage.setItem('todolist-ignite', JSON.stringify(tasks));
     }
 
+    function handleChangeCompletedValue(taskToChange: Task) {
+        setTasks((prevTasks) =>
+            prevTasks.map((task) => {
+                if (task.id === taskToChange.id) {
+                    return { ...task, completed: !taskToChange.completed };
+                }
+                return task;
+            }),
+        );
+    }
+
+    function handleDeleteTask(taskToDelete: Task) {
+        setTasks((prevTasks) =>
+            prevTasks.filter((task) => {
+                return task.id != taskToDelete.id;
+            }),
+        );
+    }
+
     return (
         <>
             <Header />
@@ -83,8 +97,17 @@ function App() {
                 <TaskCounter tasks={tasks} />
 
                 {tasks.length > 0 ? (
-                    tasks.map((task) => {
-                        return <p key={task.id}>{task.content}</p>;
+                    [...tasks].reverse().map((task) => {
+                        return (
+                            <TaskItem
+                                key={task.id}
+                                task={task}
+                                onChangeCompletedValue={
+                                    handleChangeCompletedValue
+                                }
+                                onDeleteTask={handleDeleteTask}
+                            />
+                        );
                     })
                 ) : (
                     <EmptyTaskList />

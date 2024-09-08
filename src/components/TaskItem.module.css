@@ -1,0 +1,47 @@
+.container {
+    background-color: var(--gray-500);
+    padding: 1rem;
+    display: flex;
+    align-items: start;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid var(--gray-400);
+}
+
+.container > p {
+    flex: 1;
+    line-height: 1.4;
+    font-size: 0.875rem;
+    color: var(--gray-100);
+}
+
+.container > input[type='checkbox'] {
+    display: none;
+}
+
+.checkbox {
+    color: var(--blue-500);
+}
+
+.completed {
+    border: 1px solid var(--gray-500);
+}
+
+.completed .checkboxChecked {
+    color: var(--purple-800);
+}
+
+.container.completed > p {
+    color: var(--gray-300);
+    text-decoration: line-through;
+}
+
+.container > button {
+    background-color: transparent;
+    border: 0;
+    border-radius: 8px;
+    color: var(--gray-300);
+    display: flex;
+    align-items: center;
+}
