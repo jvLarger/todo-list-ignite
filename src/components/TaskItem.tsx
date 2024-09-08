@@ -48,7 +48,7 @@ export function TaskItem({
                 <Circle className={styles.checkbox} size={24} />
             )}
             <p>{task.content}</p>
-            <button onClick={handleDeleteTask}>
+            <button onClick={handleDeleteTask} title="Deletar Tarefa">
                 <Trash size={24} />
             </button>
         </label>
