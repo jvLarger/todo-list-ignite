@@ -1,5 +1,5 @@
-import { Task } from '../App';
 import styles from './TaskCounter.module.css';
+import { Task } from './TaskItem';
 
 interface TaskCounterProps {
     tasks: Task[];
